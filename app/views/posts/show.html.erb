@@ -6,6 +6,7 @@
 <hr />
 <p><%= @post.body %></p>
 <hr />
-<%= link_to '編集する', "/posts/edit/#{@post.id}", :class => "btn btn-default" %>
-<%= link_to '削除する', "/posts/delete/#{@post.id}", :class => "btn btn-danger" %>
+<%= link_to '編集する', "/posts/#{@post.id}/edit", :class => "btn btn-default" %>
+<%#= link_to '削除する', "/posts/#{@post.id}/destroy", :class => "btn btn-danger" :method :delete %>
+<%= link_to '削除する', "/posts/#{@post.id}", :class => "btn btn-danger", :method => :delete %>
 </div>
