@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @authors = Author.all
-    @new_posts = Post.order(created_at: :DESC).limit(5)
+    @new_posts = Post.find_newest_article
   end
 
   def show
