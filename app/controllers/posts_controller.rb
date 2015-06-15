@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     # params.require(:key).permit(:filter)
     params.require(:post).permit(
       :title,
-      :category,
+      :category_id,
       :body
     )
   end
