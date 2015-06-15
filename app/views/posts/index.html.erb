@@ -15,11 +15,10 @@
     <p><%= @authors[0].description %></p>
   </div>
   <div class="list-group">
-    <% @posts.each_with_index do |post, index| %>
-    <% break if index >= 5 %>
-    <div class="list-group-item">
-      <a href="/posts/<%= post.id %>"><%= post.title %></a>
-    </div>
+    <% @new_posts.each_with_index do |post| %>
+      <div class="list-group-item">
+      <%= link_to post.title, post_path(post.id) %>
+      </div>
     <% end %>
   </div>
 </div>

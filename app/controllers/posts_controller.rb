@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @authors = Author.all
+    @new_posts = Post.order(created_at: :DESC).limit(5)
   end
 
   def show
