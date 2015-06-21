@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MyBlog</title>
+  <title>私のブログ</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -23,7 +23,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/posts">My Blog</a>
+        <a class="navbar-brand" href="/posts">私のブログ</a>
+        <%= search_form_for @q, class: 'navbar-form navbar-left' do |f| %>
+          <div class="form-group">
+            <%#= f.search_field :title_or_body_cont, class: "form-control input-sm" %>
+            <%#= f.search_field :title_or_body_cont, class: 'navbar-form navbar-left' %>
+            <%= f.search_field :title_or_body_cont, class: 'form-control', placeholder: 'タイトルまたは本文' %>
+          </div>
+            <%= f.submit '検索する', class: 'btn btn-default' %>
+        <% end %>
       </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
