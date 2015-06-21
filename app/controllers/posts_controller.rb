@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
+  # before_action :authenticate_user!
+  before_action :authenticate_writer!, only: [ :new, :create, :edit, :update, :destroy ]
   before_action :set_post, only: [ :show, :edit, :update, :destroy ]
 
   def index
     # @posts = Post.all
     # @posts = Post.page(params[:page])
-    @q = Post.ransack(params[:q])
-    @posts = @q.result.page(params[:page])
     @authors = Author.all
     @new_posts = Post.find_newest_article
   end
